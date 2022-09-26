@@ -173,7 +173,7 @@ def test_parsing(verbose=False):
 
 def test_files(verbose=False):
     print("Exercising file processing / programming")
-    test_name = "test1.pyper" 
+    test_name = "test1.txt" 
     with open(test_name,"w") as pout:
         print(
 """\
@@ -181,7 +181,7 @@ line 1  aaaa bbbb cccc
 line 2  dddd eeee ffff
 line 3  gggg hhhh iiii
 """, file=pout, end="")
-    test_name2 = "test2.pyper" 
+    test_name2 = "test2.txt" 
     with open(test_name2,"w") as pout:
         print(
 """\
@@ -209,13 +209,13 @@ line 3  gggg hhhh iiii
     pyp.run(['-ape', """s('[aeiou]{3}','xxx')""",
               test_name, test_name2])
 
-    pyp.run(['-ape','s("aa","bxb")', "test1.pyper"])
+    pyp.run(['-ape','s("aa","bxb")', "test1.txt"])
     pyp.run(['-e', 'for i in range(4):;{',
              '-e',       'for j in range(3):;{',
              '-e',           'print(i,j);}',
              ])
-    pyp.run(['-ape', 'print(dARGV, dd,d_,end="")', "test1.pyper"])
-    pyp.run(['-ane', 'print(dARGV, dd,d_,end="")', "test1.pyper", "test2.pyper"])
+    pyp.run(['-ape', 'print(dARGV, dd,d_,end="")', "test1.txt"])
+    pyp.run(['-ane', 'print(dARGV, dd,d_,end="")', "test1.txt", "test2.txt"])
 
 print("sys.argv:", sys.argv)
 verbose=False
