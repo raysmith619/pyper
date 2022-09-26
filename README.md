@@ -20,7 +20,7 @@ pyper.py is a Python program to facilitate perl-like "one-liner" command support
 - ;| - forces new statement line : converted to newline with current indentation  
 The token ";|" was added because statements such as ```rp=re.search(...);if rp: print(rp.group(1), '==>', d_)``` would not compile under python.
 
-#### The following is an MS Windows executable example of some similar perl and pyper.py command lines:
+#### The following are some comparisons, from samples.txt an MS Windows executable example, of some similar perl and pyper.py command lines:
 ```
 REM Finding print statements, using -n option
 REM C:\Users\raysm\workspace\python\pyper\src>
@@ -41,3 +41,17 @@ REM pyper.py -e "for i in range(1,4):;{for j in range(1,5):;{print('i:',i,'j:',j
 ```
 ##### Notes
 - Because of MS Windows/DOS command line limitations plus perl's interpretation of single quotes we used double quotes(") to enclose -e scripts and backslash escaped double quotes (\
+
+#### Some more pyper.py examples
+```
+C:\Users\raysm\workspace\python\pyper\src>pyper.py -ane "print(dARGV,d_,end=\"\")" test*.txt
+sys.argv: ['C:\\Users\\raysm\\workspace\\python\\pyper\\src\\pyper.py', '-ane', 'print(dARGV,d_,end="")', 'test*.txt']
+Cmd line run
+test1.txt line 1  aaaa bbbb cccc
+test1.txt line 2  dddd eeee ffff
+test1.txt line 3  gggg hhhh iiii
+test2.txt line 1  aaaa bbbb cccc
+test2.txt line 2  dddd eeee ffff
+test2.txt line 3  gggg hhhh iiii
+
+```
